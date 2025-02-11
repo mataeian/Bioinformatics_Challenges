@@ -59,7 +59,7 @@
 import re
 import requests
 
-# Regular expression for N-glycosylation motif
+
 motif_pattern = r'N[^P][ST][^P]'
 
 def fetch_protein_sequence(uniprot_id):
@@ -69,7 +69,7 @@ def fetch_protein_sequence(uniprot_id):
     url = f"http://www.uniprot.org/uniprot/{uniprot_id}.fasta"
     response = requests.get(url)
     fasta_data = response.text
-    # Remove the header (the first line starting with ">") and join the sequence lines
+    # Remove the header
     sequence = ''.join(fasta_data.split('\n')[1:]).strip()
     return sequence
 
@@ -91,14 +91,14 @@ def find_proteins_with_motif(uniprot_ids):
             results[uniprot_id] = motif_positions
     return results
 
-# Read the UniProt IDs from the file
+
 with open("rosalind_mprt.txt", "r") as file:
     uniprot_ids = file.read().splitlines()  # Read all lines into a list, each line as one UniProt ID
 
-# Find the proteins with the N-glycosylation motif
+
 results = find_proteins_with_motif(uniprot_ids)
 
-# Write the results to an output file
+
 with open("output.txt", "w") as output_file:
     for uniprot_id, positions in results.items():
         output_file.write(f"{uniprot_id}\n")

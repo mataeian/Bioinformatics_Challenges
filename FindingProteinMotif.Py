@@ -12,49 +12,7 @@
 # Given: At most 15 UniProt Protein Database access IDs.
 # Return: For each protein possessing the N-glycosylation motif, output its given access ID followed by a list of locations in the protein string where the motif can be found.
 # N{P}[ST]{P}
-# import re
-# import requests
 
-# # Regular expression for N-glycosylation motif
-# motif_pattern = r'N[^P][ST][^P]'
-    
-# def fetch_protein_sequence(uniprot_id):
-#     """
-#     Fetch the protein sequence from UniProt in FASTA format and return the sequence as a string.
-#     """
-#     url = f"http://www.uniprot.org/uniprot/{uniprot_id}.fasta"
-#     response = requests.get(url)
-#     fasta_data = response.text
-#     # Remove the header (the first line starting with ">") and join the sequence lines
-#     sequence = ''.join(fasta_data.split('\n')[1:]).strip()
-#     return sequence
-
-# def find_motif_locations(sequence, pattern):
-#     """
-#     Find all positions (1-based index) of the N-glycosylation motif in the protein sequence.
-#     """
-#     return [m.start() + 1 for m in re.finditer(pattern, sequence)]
-
-# def find_proteins_with_motif(uniprot_ids):
-#     """
-#     For each UniProt ID, find the locations of the N-glycosylation motif and return the results.
-#     """
-#     results = {}
-#     for uniprot_id in uniprot_ids:
-#         sequence = fetch_protein_sequence(uniprot_id)
-#         motif_positions = find_motif_locations(sequence, motif_pattern)
-#         if motif_positions:  # Only include proteins with at least one motif match
-#             results[uniprot_id] = motif_positions
-#     return results
-# with open("rosalind_mprt.txt", "r") as file:
-#     uniprot_id =file.read().splitlines() #Read all lines into a list
-
-# results = find_proteins_with_motif(uniprot_id)
-
-# # Print the results
-# for uniprot_id, positions in results.items():
-#     print(f"{uniprot_id}")
-#     print(' '.join(map(str, positions)))
 
 import re
 import requests

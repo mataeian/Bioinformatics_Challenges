@@ -11,7 +11,7 @@
 from Bio.Seq import Seq
 from Bio import SeqIO
 
-# Define the codon table
+
 codon_table = {
     'ATA':'I', 'ATC':'I', 'ATT':'I', 'ATG':'M',
     'ACA':'T', 'ACC':'T', 'ACG':'T', 'ACT':'T',
@@ -57,8 +57,8 @@ def find_orfs(dna):
 
 
 with open("rosalind_orf.txt") as handle:
-    for record in SeqIO.parse(handle, "fasta"):
-        dna = str(record.seq)
+    for record in SeqIO.parse(handle, "fasta"): # SeqIO.parse reads the file and returns a sequence record.
+        dna = str(record.seq) # record.seq extracts the sequence, which is then converted to a string using str().
 
 
 reverse_complement = str(Seq(dna).reverse_complement())

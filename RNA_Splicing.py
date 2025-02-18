@@ -10,6 +10,7 @@
 # Remove the introns from the DNA sequence to obtain the exons.
 # Transcribe the exons into RNA.
 # Translate the RNA into a protein sequence.
+
 from Bio import SeqIO
 from Bio.Seq import Seq
 
@@ -30,14 +31,11 @@ def main():
     # Extract the DNA sequence and introns
     dna_sequence = str(sequences[0].seq)
     introns = [str(record.seq) for record in sequences[1:]]
-    
-    # Remove introns to get exons
+ 
     exons = remove_introns(dna_sequence, introns)
     
-    # Transcribe and translate the exons
     protein_sequence = transcribe_and_translate(Seq(exons))
     
-    # Output the protein sequence
     print(protein_sequence)
 
 if __name__ == "__main__":

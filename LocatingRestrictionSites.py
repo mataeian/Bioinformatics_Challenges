@@ -32,7 +32,7 @@ def find_reverse_palindromes(dna, min_length=4, max_length=12):
     return results
 
 def main():
-    fasta_file = "input.fasta"
+    fasta_file = "rosalind_revp.txt"
     with open(fasta_file, "r") as handle:
         for record in SeqIO.parse(handle, "fasta"):
             dna = str(record.seq)

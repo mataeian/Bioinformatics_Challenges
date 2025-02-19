@@ -31,3 +31,18 @@ def find_reverse_palindromes(dna, min_length=4, max_length=12):
     
     return results
 
+def main():
+    fasta_file = "input.fasta"
+    with open(fasta_file, "r") as handle:
+        for record in SeqIO.parse(handle, "fasta"):
+            dna = str(record.seq)
+            break  
+    
+    
+    palindromes = find_reverse_palindromes(dna)
+    
+    for pos, length in palindromes:
+        print(pos, length)
+
+if __name__ == "__main__":
+    main()

@@ -7,3 +7,7 @@
 
 # Return: One collection of indices of s in which the symbols of t appear as a subsequence of s. If multiple solutions exist, you may return any one.
 
+# To solve:
+# Read the FASTA file
+# Find the indices
+# Return the indices

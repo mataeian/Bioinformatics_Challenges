@@ -11,3 +11,33 @@
 # Read the FASTA file
 # Find the indices
 # Return the indices
+
+from Bio import SeqIO
+
+            
+def find_subsequence_indices (s, t):
+    indeces = []
+    t_index = 0
+    for i in range(len(s)):
+        if t_index >= len(t):
+            break
+        if s[i] == t[t_index]:
+            indeces.append(i + 1)  
+            t_index += 1
+    return indeces
+
+
+def main():
+    fasta_file = "rosalind_sseq.txt"
+    sequences = []
+    with open(fasta_file, "r") as handle:
+        for record in SeqIO.parse(handle, "fasta"):
+            sequences.append(str(record.seq))
+    s = sequences[0]
+    t = sequences[1]
+
+indeces = find_subsequence_indices (s,t)
+print(" ".join(map(str, indices)))
+
+if __name__ == "__main__":
+    main()

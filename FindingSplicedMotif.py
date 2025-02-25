@@ -36,8 +36,9 @@ def main():
     s = sequences[0]
     t = sequences[1]
 
-indeces = find_subsequence_indices (s,t)
-print(" ".join(map(str, indices)))
+    indeces = find_subsequence_indices (s,t)
+    print(" ".join(map(str, indeces)))
 
 if __name__ == "__main__":
     main()
+

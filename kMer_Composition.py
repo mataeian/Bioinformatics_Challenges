@@ -49,3 +49,5 @@ def main():
     print(' '.join(map(str, composition)))
    
    
+if __name__ == "__main__":
+    main()

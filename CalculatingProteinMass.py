@@ -46,6 +46,7 @@ def main():
     weight = calculate_protein_weight(protein)
     print(round(weight, 3))
 
-
+if __name__ == "__main__":
+    main()
 
 

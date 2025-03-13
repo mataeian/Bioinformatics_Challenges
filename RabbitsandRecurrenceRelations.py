@@ -9,9 +9,13 @@
 # Return: The total number of rabbit pairs that will be present after n months, if we begin with 1 pair and in each generation, every pair of reproduction-age rabbits produces a litter of k rabbit pairs (instead of only 1 pair).
 
 # To solve:
-# 1. list to store number of rabbit pairs for each month
-# 2. start the first 2 month with 1 pair of rabbits
-# 3. for each subsequent month calculate the number of rabbit pairs using the recurrance relation
+# 1. Initialization: Start with 1 pair of rabbits in the first month.
+
+# 2. Recurrence Relation: For each subsequent month, the number of rabbit pairs is the sum of the rabbit pairs from the previous month and the rabbit pairs from two months ago multiplied by k (since each pair of reproduction-age rabbits produces k pairs of offspring).
+
+# 3. Base Cases: The first two months have 1 pair of rabbits each.
+
+# 4. Iteration: Use a loop to compute the number of rabbit pairs for each month up to n.
 
 def rabbit_pairs(n, k):
     # Initialize the base cases
@@ -29,3 +33,10 @@ def rabbit_pairs(n, k):
     
     # Return the number of rabbit pairs after n months
     return dp[n]
+
+n = 31
+k = 2
+
+result = rabbit_pairs(n, k)
+
+print(result)  
